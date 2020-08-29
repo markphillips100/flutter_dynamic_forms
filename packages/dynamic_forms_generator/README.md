@@ -2,7 +2,7 @@
 
 [![pub package](https://img.shields.io/pub/v/dynamic_forms_generator.svg)](https://pub.dev/packages/dynamic_forms_generator)
 
-Dart library for generating model and parser part of the [flutter_dynamic_forms](https://github.com/OndrejKunc/flutter_dynamic_forms).
+Dart library for generating model and parser part of the [flutter_dynamic_forms](https://github.com/markphillips100/flutter_dynamic_forms).
 
 ## Main goal
  
@@ -156,7 +156,7 @@ Each property which is not type `formElement` can also contain expression as the
     </element.propertyName>
 </element>
 ```
-See https://github.com/OndrejKunc/flutter_dynamic_forms to learn more about expressions.
+See https://github.com/markphillips100/flutter_dynamic_forms to learn more about expressions.
 
 `contentProperty` allows to write the selected property directly inside the element. In case of container it looks like this:
 ```xml

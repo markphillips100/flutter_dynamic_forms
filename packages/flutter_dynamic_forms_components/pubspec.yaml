@@ -1,7 +1,7 @@
 name: flutter_dynamic_forms_components
 description: Flutter package containing default set of dynamic form components.
 version: 0.12.0
-homepage: https://github.com/OndrejKunc/flutter_dynamic_forms
+homepage: https://github.com/markphillips100/flutter_dynamic_forms
 
 environment:
   sdk: ">=2.6.0 <3.0.0"
@@ -10,21 +10,24 @@ dependencies:
   flutter:
     sdk: flutter
   meta: ^1.1.8
-  rxdart: ^0.23.1
+  rxdart: ^0.24.0
   intl: ^0.16.0
 
   expression_language:
     git:
-      url: https://github.com/OndrejKunc/flutter_dynamic_forms.git
+      url: https://github.com/markphillips100/flutter_dynamic_forms.git
       path: packages/expression_language
+      ref: dev
   dynamic_forms:
     git:
-      url: https://github.com/OndrejKunc/flutter_dynamic_forms.git
+      url: https://github.com/markphillips100/flutter_dynamic_forms.git
       path: packages/dynamic_forms
+      ref: dev
   flutter_dynamic_forms:
     git:
-      url: https://github.com/OndrejKunc/flutter_dynamic_forms.git
+      url: https://github.com/markphillips100/flutter_dynamic_forms.git
       path: packages/flutter_dynamic_forms
+      ref: dev
 
 dev_dependencies:
   flutter_test:
@@ -33,7 +36,8 @@ dev_dependencies:
   pedantic: ^1.8.0+1
   dynamic_forms_generator:
     git:
-      url: https://github.com/OndrejKunc/flutter_dynamic_forms.git
+      url: https://github.com/markphillips100/flutter_dynamic_forms.git
       path: packages/dynamic_forms_generator
+      ref: dev
 
 flutter:

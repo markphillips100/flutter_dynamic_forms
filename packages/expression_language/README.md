@@ -30,7 +30,7 @@ Currently there are multiple supported data types and operations.
 * `Duration` -> maps directly to the Dart `Duration`
 
 Note: To be able to easily work with financial data and not to lose precision we decided to use `Decimal` data type taken from [dart-decimal](https://github.com/a14n/dart-decimal) instead of `double`. To keep our expression definitions strongly typed and to have a common way to work with all number data types we introduced base `Number` data type class which is simmilar to Dart `num` class. Since we can't modify definition of the Dart `int` we have also introduced `Integer` data type which is a simple wrapper around the `int` and which also extends `Number`. There is a conversion expression from `Integer` to `int` and from `Decimal` to `double` so higher layers can hide those data types as an implementation detail.
-To learn more about DateTime data type in expressions see this [merge request](https://github.com/OndrejKunc/flutter_dynamic_forms/pull/9).
+To learn more about DateTime data type in expressions see this [merge request](https://github.com/markphillips100/flutter_dynamic_forms/pull/9).
 
 ### Operations
 There are most of the standard operations working on the data types above. For example you can use most of the arithmetic operators like `+`,`-`, `*`, `/` , `~/`, `%` or the logical operators like `&&`, `||`, `!`, `<`, `>`, `<=`, `>=`, `==`.
