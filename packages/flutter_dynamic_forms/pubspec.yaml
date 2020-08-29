@@ -15,6 +15,7 @@ dependencies:
     git:
       url: https://github.com/markphillips100/flutter_dynamic_forms.git
       path: packages/dynamic_forms
+      ref: dev
 
 dev_dependencies:
   flutter_test:

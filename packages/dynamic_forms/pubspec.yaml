@@ -17,6 +17,7 @@ dependencies:
     git:
       url: https://github.com/markphillips100/flutter_dynamic_forms.git
       path: packages/expression_language
+      ref: dev
 
 dev_dependencies:
   test: ^1.9.4
