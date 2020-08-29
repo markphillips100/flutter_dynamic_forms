@@ -10,10 +10,8 @@ class DynamicFormBloc extends Bloc<FormElementEvent, DynamicFormState> {
 
   FormManager formManager;
 
-  DynamicFormBloc(this.formManagerBuilder);
-
-  @override
-  DynamicFormState get initialState => DynamicFormState();
+  DynamicFormBloc(this.formManagerBuilder)
+    : super(DynamicFormState());
 
   @override
   Stream<DynamicFormState> mapEventToState(FormElementEvent event) async* {

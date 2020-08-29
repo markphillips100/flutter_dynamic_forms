@@ -14,10 +14,8 @@ class TransitionFormBloc extends Bloc<FormElementEvent, TransitionFormState> {
 
   FormManager formManager;
 
-  TransitionFormBloc(this.formManagerBuilder, this.transitionFormBuilder);
-
-  @override
-  TransitionFormState get initialState => TransitionFormState();
+  TransitionFormBloc(this.formManagerBuilder, this.transitionFormBuilder)
+    : super(TransitionFormState());
 
   @override
   Stream<TransitionFormState> mapEventToState(FormElementEvent event) async* {

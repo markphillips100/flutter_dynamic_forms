@@ -17,17 +17,14 @@ dependencies:
     git:
       url: https://github.com/markphillips100/flutter_dynamic_forms.git
       path: packages/expression_language
-      ref: dev
   dynamic_forms:
     git:
       url: https://github.com/markphillips100/flutter_dynamic_forms.git
       path: packages/dynamic_forms
-      ref: dev
   flutter_dynamic_forms:
     git:
       url: https://github.com/markphillips100/flutter_dynamic_forms.git
       path: packages/flutter_dynamic_forms
-      ref: dev
 
 dev_dependencies:
   flutter_test:
@@ -38,6 +35,5 @@ dev_dependencies:
     git:
       url: https://github.com/markphillips100/flutter_dynamic_forms.git
       path: packages/dynamic_forms_generator
-      ref: dev
 
 flutter:
