@@ -15,21 +15,19 @@ class DynamicFormScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: BlocListener<DynamicFormBloc, DynamicFormState>(
             listener: (context, state) {
-              if (state.resultItemValues != null &&
-                  state.resultItemValues.isNotEmpty) {
-                _displayDialog(context, state.resultItemValues);
+              if (state.resultProperties != null &&
+                  state.resultProperties.isNotEmpty) {
+                _displayDialog(context, state.resultProperties);
               }
             },
             child: BlocBuilder<DynamicFormBloc, DynamicFormState>(
               builder: (context, state) {
-                Column result = Column(children: <Widget>[
-                  DynamicFormContainer(),
-                ]);
-
-                if (!state.isLoading) {
-                  result.children.add(DynamicFormButtonRow(state));
-                }
-                return result;
+                return Column(
+                  children: [
+                    DynamicFormContainer(),
+                    if (!state.isLoading) DynamicFormButtonRow(state)
+                  ],
+                );
               },
             ),
           ),
@@ -38,8 +36,8 @@ class DynamicFormScreen extends StatelessWidget {
     );
   }
 
-  void _displayDialog(
-      BuildContext context, List<FormItemValue> resultItemValues) async {
+  void _displayDialog(BuildContext context,
+      List<FormPropertyValue> resultPropertyValues) async {
     var bloc = BlocProvider.of<DynamicFormBloc>(context);
     return showDialog(
       context: context,
@@ -52,9 +50,9 @@ class DynamicFormScreen extends StatelessWidget {
             child: ListView(
               padding: EdgeInsets.all(8.0),
               //map List of our data to the ListView
-              children: resultItemValues
+              children: resultPropertyValues
                   .map((riv) =>
-                      flutter.Text("${riv.name} ${riv.property} ${riv.value}"))
+                      flutter.Text('${riv.id} ${riv.property} ${riv.value}'))
                   .toList(),
             ),
           ),

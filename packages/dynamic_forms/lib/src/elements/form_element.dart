@@ -10,6 +10,7 @@ abstract class FormElement implements Element {
   static const String parentPropertyName = 'parent';
   static const String isVisiblePropertyName = 'isVisible';
 
+  @override
   String id;
 
   Property<FormElement> get parentProperty => properties[parentPropertyName];
@@ -124,5 +125,16 @@ abstract class FormElement implements Element {
       return null;
     }
     return ImmutableProperty(element);
+  }
+
+  TFormElement getFirstParentOfType<TFormElement extends FormElement>() {
+    var currentParent = parent;
+    while (currentParent != null) {
+      if (currentParent is TFormElement) {
+        return currentParent;
+      }
+      currentParent = currentParent.parent;
+    }
+    return null;
   }
 }

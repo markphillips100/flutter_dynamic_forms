@@ -1,3 +1,17 @@
+# 0.4.0
+
+* Added support for custom expressions.
+* Removed visitor functionality from expressions.
+* Improved documentation.
+
+# 0.3.2
+
+Added support for dateTime in expressions.
+
+# 0.3.1
+
+Added isNull and isNullOrEmpty functions.
+
 # 0.3.0
 
 * Increased petitparser dependency to ^3.0.0

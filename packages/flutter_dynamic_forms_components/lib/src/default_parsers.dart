@@ -1,7 +1,7 @@
 import 'package:dynamic_forms/dynamic_forms.dart';
 import 'package:flutter_dynamic_forms_components/flutter_dynamic_forms_components.dart';
 
-List<ElementParser> getDefaultParserList() {
+List<FormElementParser<FormElement>> getDefaultParserList() {
   return [
     CheckBoxParser<CheckBox>(),
     DropdownButtonParser<DropdownButton>(),
@@ -13,7 +13,6 @@ List<ElementParser> getDefaultParserList() {
     RadioButtonParser<RadioButton>(),
     ValidationParser<Validation>(),
     RequiredValidationParser(),
-    TextParser<Text>(),
     TextFieldParser<TextField>(),
     SingleSelectChipGroupParser<SingleSelectChipGroup>(),
     SingleSelectChipChoiceParser<SingleSelectChipChoice>(),
