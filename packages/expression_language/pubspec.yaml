@@ -7,7 +7,7 @@ environment:
   sdk: ">=2.8.4 <3.0.0"
 
 dependencies:
-  petitparser: ^3.0.0
+  petitparser: ^4.0.2
   rational: ^0.3.7
   meta: ^1.1.8
 
