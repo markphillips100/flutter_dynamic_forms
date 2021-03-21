@@ -9,8 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  meta: ^1.1.8
-  provider: ^4.1.3
+  meta: ^1.3.0
+  provider: ^5.0.0
 
   expression_language:
     git:

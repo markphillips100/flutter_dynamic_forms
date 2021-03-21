@@ -8,8 +8,8 @@ environment:
 
 dependencies:
   xml: ^5.0.2
-  rxdart: ^0.24.0
-  meta: ^1.1.8
+  rxdart: ^0.26.0
+  meta: ^1.3.0
 
   expression_language:
     git:
