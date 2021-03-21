@@ -8,10 +8,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^0.1.2
+  cupertino_icons: ^1.0.2
   flutter_dynamic_forms_components:
     path: ../
-  flutter_bloc: ^6.0.1
+  flutter_bloc: ^7.0.0
 
 dev_dependencies:
   flutter_test:
