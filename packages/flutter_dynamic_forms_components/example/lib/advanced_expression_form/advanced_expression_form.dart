@@ -36,24 +36,13 @@ class AdvancedExpressionForm extends StatelessWidget {
         {
           "@name": "label",          
           "value": {
-                "expression": "\"Slider 1: \" + toString(round(@slider1.value, 2))"
-          }
-        },
-        {
-          "@name": "label",          
-          "value": {
-                "expression": "\"Slider 2: \" + toString(round(@slider2.value, 2))"
-          }
-        },
-        {
-          "@name": "label",          
-          "value": {
             "expression": "\"Sum: \" + toString(round(sumNumbers(selectNumberProperty(@sliderCollection.children, \"value\")), 2))"
           }
         }
     ]
 }
   ''';
+
 
   @override
   Widget build(BuildContext context) {

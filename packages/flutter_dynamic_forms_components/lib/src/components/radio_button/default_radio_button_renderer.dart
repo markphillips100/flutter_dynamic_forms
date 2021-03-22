@@ -23,7 +23,7 @@ class DefaultRadioButtonRenderer
         onChanged: (String? value) => dispatcher(
           ChangeValueEvent(
               value: value,
-              elementId: parent.id,
+              elementId: parent.id!,
               propertyName: model.SingleSelectGroup.valuePropertyName),
         ),
       ),

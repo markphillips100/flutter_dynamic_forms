@@ -55,12 +55,12 @@ class Slider extends FormElement {
       minValueProperty.value;
   Stream<double> get minValueChanged => minValueProperty.valueChanged;
 
-  Property<double?> get valueProperty => properties[valuePropertyName] as Property<double?>;
-  set valueProperty(Property<double?> value) =>
+  Property<double> get valueProperty => properties[valuePropertyName] as Property<double>;
+  set valueProperty(Property<double> value) =>
       registerProperty(valuePropertyName, value);
-  double? get value =>
+  double get value =>
       valueProperty.value;
-  Stream<double?> get valueChanged => valueProperty.valueChanged;
+  Stream<double> get valueChanged => valueProperty.valueChanged;
 
   @override
   FormElement getInstance() {

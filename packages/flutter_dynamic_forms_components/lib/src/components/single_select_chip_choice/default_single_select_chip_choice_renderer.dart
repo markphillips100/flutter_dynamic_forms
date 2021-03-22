@@ -22,7 +22,7 @@ class DefaultSingleSelectChipChoiceRenderer
         onSelected: (_) => dispatcher(
           ChangeValueEvent(
             value: element.value,
-            elementId: parent.id,
+            elementId: parent.id!,
             propertyName: model.SingleSelectGroup.valuePropertyName,
           ),
         ),

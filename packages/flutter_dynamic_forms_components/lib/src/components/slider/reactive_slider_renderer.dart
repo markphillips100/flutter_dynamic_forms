@@ -17,7 +17,7 @@ class ReactiveSliderRenderer extends FormElementRenderer<model.Slider> {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Slider.adaptive(
-              value: element.value ?? 1.0,
+              value: element.value,
               min: element.minValue,
               max: element.maxValue,
               activeColor: Color(element.activeColor),
@@ -28,7 +28,7 @@ class ReactiveSliderRenderer extends FormElementRenderer<model.Slider> {
                 dispatcher(
                   ChangeValueEvent<double>(
                     value: value,
-                    elementId: element.id,
+                    elementId: element.id!,
                     propertyName: model.Slider.valuePropertyName,
                   ),
                 );

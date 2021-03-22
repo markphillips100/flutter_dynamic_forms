@@ -44,7 +44,7 @@ class ReactiveDateRenderer extends FormElementRenderer<model.Date> {
                   dispatcher(
                     ChangeValueEvent(
                       value: picked,
-                      elementId: element.id,
+                      elementId: element.id!,
                       // propertyName: model.Date.valuePropertyName,
                     ),
                   );

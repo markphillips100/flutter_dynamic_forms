@@ -41,7 +41,7 @@ class _TransitionFormContainerState extends State<TransitionFormContainer> {
         }
         return Center(
           child: SingleChildScrollView(
-            child: _formRenderService.render(state.form, context),
+            child: _formRenderService.render(state.form!, context),
           ),
         );
       },

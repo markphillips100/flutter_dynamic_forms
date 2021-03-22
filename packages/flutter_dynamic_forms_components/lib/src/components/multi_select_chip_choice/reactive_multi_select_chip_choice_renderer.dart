@@ -23,7 +23,7 @@ class ReactiveMultiSelectChipChoiceRenderer
             onSelected: (selected) => dispatcher(
               ChangeValueEvent(
                 value: selected,
-                elementId: element.id,
+                elementId: element.id!,
                 propertyName: model.MultiSelectChoice.isSelectedPropertyName,
               ),
             ),

@@ -22,7 +22,7 @@ class ReactiveCheckBoxRenderer extends FormElementRenderer<model.CheckBox> {
                 onChanged: (value) => dispatcher(
                   ChangeValueEvent(
                     value: value,
-                    elementId: element.id,
+                    elementId: element.id!,
                   ),
                 ),
                 value: snapshot.data,

@@ -51,7 +51,7 @@ class SliderParser<TSlider extends Slider>
         defaultValue: () => 0,
         isImmutable: true,
       )
-      ..valueProperty = parserNode.getNullableDoubleProperty(
+      ..valueProperty = parserNode.getDoubleProperty(
         'value',
         defaultValue: () => 0,
         isImmutable: false,

@@ -25,7 +25,7 @@ class ReactiveDropdownButtonRenderer
             onChanged: (String? newValue) => dispatcher(
               ChangeValueEvent(
                   value: newValue,
-                  elementId: element.id,
+                  elementId: element.id!,
                   propertyName: model.SingleSelectGroup.valuePropertyName),
             ),
             items: element.choices

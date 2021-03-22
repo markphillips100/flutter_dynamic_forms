@@ -50,7 +50,7 @@ class ReactiveDateRangeRenderer extends FormElementRenderer<model.DateRange> {
                         dispatcher(
                           ChangeValueEvent(
                             value: startDate,
-                            elementId: element.id,
+                            elementId: element.id!,
                             propertyName:
                                 model.DateRange.firstValuePropertyName,
                           ),
@@ -58,7 +58,7 @@ class ReactiveDateRangeRenderer extends FormElementRenderer<model.DateRange> {
                         dispatcher(
                           ChangeValueEvent(
                             value: endDate,
-                            elementId: element.id,
+                            elementId: element.id!,
                             propertyName:
                                 model.DateRange.secondValuePropertyName,
                           ),
