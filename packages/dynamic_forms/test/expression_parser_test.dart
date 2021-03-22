@@ -190,14 +190,12 @@ class TestFormElement extends FormElement {
 
   @override
   ExpressionProviderElement clone(
-      ExpressionProvider<ExpressionProviderElement> parent) {
-    //Nothing to do
-    return null;
+      ExpressionProvider<ExpressionProviderElement>? parent) {
+    return this;
   }
 
   @override
   FormElement getInstance() {
-    //Nothing to do
-    return null;
+    return this;
   }
 }
