@@ -16,8 +16,8 @@ class DynamicFormScreen extends StatelessWidget {
           child: BlocListener<DynamicFormBloc, DynamicFormState>(
             listener: (context, state) {
               if (state.resultProperties != null &&
-                  state.resultProperties.isNotEmpty) {
-                _displayDialog(context, state.resultProperties);
+                  state.resultProperties!.isNotEmpty) {
+                _displayDialog(context, state.resultProperties!);
               }
             },
             child: BlocBuilder<DynamicFormBloc, DynamicFormState>(
@@ -57,7 +57,7 @@ class DynamicFormScreen extends StatelessWidget {
             ),
           ),
           actions: <Widget>[
-            FlatButton(
+            TextButton(
               child: flutter.Text('Ok'),
               onPressed: () {
                 bloc.add(ClearFormDataEvent());
@@ -76,7 +76,7 @@ class DynamicFormButtonRow extends StatelessWidget {
 
   const DynamicFormButtonRow(
     this.state, {
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -86,7 +86,7 @@ class DynamicFormButtonRow extends StatelessWidget {
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        OutlineButton(
+        OutlinedButton(
           child: Row(
             children: <Widget>[
               flutter.Text("Cancel"),
@@ -99,7 +99,7 @@ class DynamicFormButtonRow extends StatelessWidget {
           },
         ),
         SizedBox(width: 10),
-        OutlineButton(
+        OutlinedButton(
           child: Row(
             children: <Widget>[
               flutter.Text("Clear"),
@@ -112,7 +112,7 @@ class DynamicFormButtonRow extends StatelessWidget {
           },
         ),
         SizedBox(width: 10),
-        OutlineButton(
+        OutlinedButton(
           child: Row(
             children: <Widget>[
               flutter.Text("Ok"),

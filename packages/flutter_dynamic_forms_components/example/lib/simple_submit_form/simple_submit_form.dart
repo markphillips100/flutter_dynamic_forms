@@ -12,7 +12,7 @@ class SimpleSubmitForm extends StatefulWidget {
 
 class _SimpleSubmitFormState extends State<SimpleSubmitForm> {
   bool isLoading = true;
-  String fileContent;
+  late String fileContent;
 
   @override
   void initState() {

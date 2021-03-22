@@ -16,7 +16,7 @@ class SliderParser<TSlider extends Slider>
   void fillProperties(
     TSlider slider, 
     ParserNode parserNode, 
-    Element parent,
+    Element? parent,
     ElementParserFunction parser,
   ) {
     super.fillProperties(slider, parserNode, parent, parser);
@@ -51,7 +51,7 @@ class SliderParser<TSlider extends Slider>
         defaultValue: () => 0,
         isImmutable: true,
       )
-      ..valueProperty = parserNode.getDoubleProperty(
+      ..valueProperty = parserNode.getNullableDoubleProperty(
         'value',
         defaultValue: () => 0,
         isImmutable: false,

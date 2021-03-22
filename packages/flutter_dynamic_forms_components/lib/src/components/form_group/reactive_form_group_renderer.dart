@@ -20,7 +20,7 @@ class ReactiveFormGroupRenderer extends FormElementRenderer<model.FormGroup> {
       builder: (context, snapshot) {
         return StreamBuilder(
           stream: MergeStream(
-            snapshot.data
+            snapshot.data!
                 .whereType<FormElement>()
                 .map((child) => child.isVisibleChanged),
           ),
@@ -35,7 +35,7 @@ class ReactiveFormGroupRenderer extends FormElementRenderer<model.FormGroup> {
               )
             ];
             childrenWidgets.addAll(
-              snapshot.data
+              snapshot.data!
                   .whereType<FormElement>()
                   .where((f) => f.isVisible)
                   .map(

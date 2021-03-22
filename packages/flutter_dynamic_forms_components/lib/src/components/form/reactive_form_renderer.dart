@@ -19,12 +19,12 @@ class ReactiveFormRenderer extends FormElementRenderer<model.Form> {
       builder: (context, snapshot) {
         return StreamBuilder(
           stream: MergeStream(
-            snapshot.data
+            snapshot.data!
                 .whereType<FormElement>()
                 .map((child) => child.isVisibleChanged),
           ),
           builder: (context, _) {
-            List<Widget> childrenWidgets = snapshot.data
+            List<Widget> childrenWidgets = snapshot.data!
                 .whereType<FormElement>()
                 .where((f) => f.isVisible)
                 .map(

@@ -14,7 +14,7 @@ class DefaultDropdownButtonRenderer
     return Center(
       child: DropdownButton<String>(
         value: element.value,
-        onChanged: (String newValue) => dispatcher(ChangeValueEvent(
+        onChanged: (String? newValue) => dispatcher(ChangeValueEvent(
           value: newValue,
           elementId: element.id,
           propertyName: model.SingleSelectGroup.valuePropertyName,

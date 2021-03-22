@@ -13,7 +13,8 @@ class DefaultDateRenderer extends FormElementRenderer<model.Date> {
       FormElementEventDispatcherFunction dispatcher,
       FormElementRendererFunction renderer) {
     final format = DateFormat(element.format);
-    final time = element.value != null ? element.value : DateTime.now();
+    var initialDate = element.initialDate != null ? element.initialDate! : DateTime.now();
+    final time = element.value != null ? element.value! : initialDate;
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -24,11 +25,15 @@ class DefaultDateRenderer extends FormElementRenderer<model.Date> {
           onTap: () async {
             FocusScope.of(context).requestFocus(FocusNode());
 
-            final DateTime picked = await showDatePicker(
+            final DateTime? picked = await showDatePicker(
               context: context,
-              firstDate: element.firstDate,
-              lastDate: element.lastDate,
-              initialDate: element.initialDate,
+              firstDate: element.firstDate != null
+                  ? element.firstDate!
+                  : DateTime(1979, 01, 01),
+              lastDate: element.lastDate != null
+                  ? element.lastDate!
+                  : DateTime(2050, 01, 01),
+              initialDate: initialDate,
             );
 
             if (picked != null) {

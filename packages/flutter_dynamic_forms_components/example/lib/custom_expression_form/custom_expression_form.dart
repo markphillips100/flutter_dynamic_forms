@@ -47,7 +47,7 @@ class CustomExpressionForm extends StatelessWidget {
                 name: 'toUpperCase',
                 parametersLength: 1,
                 createFunctionExpression: (parameters) =>
-                    ToUpperCaseExpression(parameters[0]),
+                    ToUpperCaseExpression(parameters[0] as Expression<String>),
               )
             ],
           ),

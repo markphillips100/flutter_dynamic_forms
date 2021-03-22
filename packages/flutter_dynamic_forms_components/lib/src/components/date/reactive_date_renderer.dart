@@ -16,8 +16,8 @@ class ReactiveDateRenderer extends FormElementRenderer<model.Date> {
       stream: element.valueChanged,
       builder: (BuildContext context, _) {
         final format = DateFormat(element.format);
-        final time =
-            element.value != null ? element.value : element.initialDate;
+        var initialDate = element.initialDate != null ? element.initialDate! : DateTime.now();
+        final time = element.value != null ? element.value! : initialDate;
 
         return Center(
           child: Padding(
@@ -29,15 +29,15 @@ class ReactiveDateRenderer extends FormElementRenderer<model.Date> {
               onTap: () async {
                 FocusScope.of(context).requestFocus(FocusNode());
 
-                final DateTime picked = await showDatePicker(
+                final DateTime? picked = await showDatePicker(
                   context: context,
                   firstDate: element.firstDate != null
-                      ? element.firstDate
+                      ? element.firstDate!
                       : DateTime(1979, 01, 01),
                   lastDate: element.lastDate != null
-                      ? element.lastDate
+                      ? element.lastDate!
                       : DateTime(2050, 01, 01),
-                  initialDate: element.initialDate,
+                  initialDate: initialDate,
                 );
 
                 if (picked != null) {

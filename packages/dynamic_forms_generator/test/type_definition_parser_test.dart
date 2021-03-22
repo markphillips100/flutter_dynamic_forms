@@ -4,7 +4,7 @@ import 'package:petitparser/petitparser.dart';
 import 'package:test/test.dart';
 
 void main() {
-  Parser parser;
+  late Parser parser;
 
   setUp(() {
     parser = ComponentTypeGrammarParser(parseTypeDefinition: true).build();
@@ -45,7 +45,7 @@ void main() {
         'type2');
     expect(
         ((result as GenericDefinitionType).genericParameters[0])
-            .extendsType
+            .extendsType!
             .typeName,
         'type3');
   });
@@ -59,13 +59,13 @@ void main() {
     expect(
         (result as GenericDefinitionType)
             .genericParameters[0]
-            .extendsType
+            .extendsType!
             .typeName,
         'type3');
     expect(
         (result as GenericDefinitionType)
             .genericParameters[1]
-            .extendsType
+            .extendsType!
             .typeName,
         'type5');
   });

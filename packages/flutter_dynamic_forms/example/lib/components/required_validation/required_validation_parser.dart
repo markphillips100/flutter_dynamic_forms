@@ -1,3 +1,5 @@
+//import 'dart:html';
+
 import 'package:dynamic_forms/dynamic_forms.dart';
 import 'package:expression_language/expression_language.dart';
 
@@ -9,11 +11,11 @@ class RequiredValidationParser extends ValidationParser<RequiredValidation> {
 
   @override
   void fillProperties(RequiredValidation validation, ParserNode parserNode,
-      Element parent, parser) {
+      Element? parent, parser) {
     validation
       ..id = parserNode.getPlainString('id')
       ..isVisibleProperty = parserNode.getIsVisibleProperty()
-      ..parentProperty = parserNode.getParentProperty(parent)
+      ..parentProperty = parserNode.getParentProperty(parent as FormElement)
       ..messageProperty = parserNode.getStringProperty('message')
       ..isValidProperty = getIsValid(parent);
   }
@@ -33,7 +35,7 @@ class RequiredValidationParser extends ValidationParser<RequiredValidation> {
       () => CustomFunctionExpression<bool>(
         [
           DelegateExpression(
-            [parent.id],
+            [parent.id!],
             parent.getExpressionProvider(),
           ),
         ],

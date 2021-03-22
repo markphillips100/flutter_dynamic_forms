@@ -4,7 +4,7 @@ import 'package:petitparser/petitparser.dart';
 import 'package:test/test.dart';
 
 void main() {
-  Parser parser;
+  late Parser parser;
 
   setUp(() {
     parser = ComponentTypeGrammarParser().build();

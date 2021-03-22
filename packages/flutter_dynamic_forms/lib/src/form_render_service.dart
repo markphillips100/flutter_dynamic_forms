@@ -6,9 +6,9 @@ import 'package:flutter_dynamic_forms/src/form_element_event_dispatcher.dart';
 class FormRenderService {
   final List<FormElementRenderer> renderers;
   final FormElementEventDispatcherFunction dispatcher;
-  Map<Type, FormElementRenderer> _renderersMap;
+  late Map<Type, FormElementRenderer> _renderersMap;
 
-  FormRenderService({@required this.renderers, @required this.dispatcher}) {
+  FormRenderService({required this.renderers, required this.dispatcher}) {
     _renderersMap = Map.fromIterable(renderers,
         key: (p) => p.formElementType, value: (p) => p);
   }

@@ -20,7 +20,7 @@ class DefaultRadioButtonRenderer
         title: Text(element.label),
         value: element.value,
         groupValue: parent.value,
-        onChanged: (String value) => dispatcher(
+        onChanged: (String? value) => dispatcher(
           ChangeValueEvent(
               value: value,
               elementId: parent.id,

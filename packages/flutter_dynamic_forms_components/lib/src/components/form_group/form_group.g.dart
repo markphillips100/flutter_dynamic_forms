@@ -7,7 +7,7 @@ import 'package:dynamic_forms/dynamic_forms.dart';
 class FormGroup extends Container {
   static const String namePropertyName = 'name';
 
-  Property<String> get nameProperty => properties[namePropertyName];
+  Property<String> get nameProperty => properties[namePropertyName] as Property<String>;
   set nameProperty(Property<String> value) =>
       registerProperty(namePropertyName, value);
   String get name =>

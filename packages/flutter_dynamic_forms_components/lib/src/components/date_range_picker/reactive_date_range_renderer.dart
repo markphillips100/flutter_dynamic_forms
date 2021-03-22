@@ -20,8 +20,8 @@ class ReactiveDateRangeRenderer extends FormElementRenderer<model.DateRange> {
 
         String _getHintText() {
           if (element.firstValue != null && element.secondValue != null) {
-            var first = format.format(element.firstValue);
-            var second = format.format(element.secondValue);
+            var first = format.format(element.firstValue!);
+            var second = format.format(element.secondValue!);
             return "$first - $second";
           }
           return 'Select Date';

@@ -76,13 +76,13 @@ class AdvancedExpressionForm extends StatelessWidget {
                 parametersLength: 2,
                 createFunctionExpression: (parameters) =>
                     SelectNumberPropertyExpression(
-                        parameters[0], parameters[1]),
+                        parameters[0] as Expression<List<ExpressionProviderElement>>, parameters[1] as Expression<String>),
               ),
               ExplicitFunctionExpressionFactory(
                 name: 'sumNumbers',
                 parametersLength: 1,
                 createFunctionExpression: (parameters) =>
-                    SumNumbersExpression(parameters[0]),
+                    SumNumbersExpression(parameters[0] as Expression<List<Expression<Number>>>),
               ),
             ],
           ),
@@ -112,7 +112,7 @@ class SelectNumberPropertyExpression<T extends ExpressionProviderElement>
     var delegateExpressions = value
         .evaluate()
         .map((e) => createDelegateExpression(
-            [e.id], e.getExpressionProvider(propertyName)))
+            [e.id!], e.getExpressionProvider(propertyName)))
         .toList();
 
     return delegateExpressions.cast<Expression<Number>>();

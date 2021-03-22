@@ -14,7 +14,7 @@ class TransitionFormContainer extends StatefulWidget {
 }
 
 class _TransitionFormContainerState extends State<TransitionFormContainer> {
-  FormRenderService _formRenderService;
+  late FormRenderService _formRenderService;
 
   @override
   void initState() {

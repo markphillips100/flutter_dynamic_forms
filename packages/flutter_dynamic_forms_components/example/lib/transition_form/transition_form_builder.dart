@@ -1,6 +1,7 @@
 import 'package:dynamic_forms/dynamic_forms.dart';
 import 'package:example/components/transition_form_element/transition_form_element.dart';
 import 'package:flutter_dynamic_forms_components/flutter_dynamic_forms_components.dart';
+import 'package:collection/collection.dart';
 
 class TransitionFormBuilder {
   final FormBuilder formBuilder;
@@ -11,7 +12,7 @@ class TransitionFormBuilder {
     var resultFormManager = formBuilder.buildFromForm(newForm);
     var resultForm = resultFormManager.form;
     addTransitionElements(oldForm, resultForm);
-    return resultForm;
+    return resultForm as Form;
   }
 
   void addTransitionElements(
@@ -23,7 +24,7 @@ class TransitionFormBuilder {
         return;
       }
       var oldFormGroup = oldFormGroups[key];
-      addTransitionElementsToFormGroup(oldFormGroup, formGroup);
+      addTransitionElementsToFormGroup(oldFormGroup!, formGroup);
     });
   }
 
@@ -54,8 +55,7 @@ class TransitionFormBuilder {
         if (formElement is TransitionFormElement) {
           continue;
         }
-        var itemInOldList = oldList.firstWhere((o) => o.id == formElement.id,
-            orElse: () => null);
+        var itemInOldList = oldList.firstWhereOrNull((o) => o.id == formElement.id);
         if (itemInOldList == null) {
           resultList[i] = TransitionFormElement(
               resultElement, FormElementTransitionType.show);
@@ -70,7 +70,7 @@ class TransitionFormBuilder {
       if (formGroup.id == null || formGroup.id == '') {
         continue;
       }
-      result[formGroup.id] = formGroup;
+      result[formGroup.id!] = formGroup;
     }
     return result;
   }

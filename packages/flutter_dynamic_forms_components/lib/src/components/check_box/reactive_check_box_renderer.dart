@@ -35,7 +35,7 @@ class ReactiveCheckBoxRenderer extends FormElementRenderer<model.CheckBox> {
               initialData: element.label,
               stream: element.labelChanged,
               builder: (context, snapshot) {
-                return Text(snapshot.data);
+                return Text(snapshot.data!);
               },
             ),
           )

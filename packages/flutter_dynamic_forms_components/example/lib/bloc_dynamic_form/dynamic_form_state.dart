@@ -4,27 +4,28 @@ import 'package:meta/meta.dart';
 
 @immutable
 class DynamicFormState {
-  final Form form;
+  final Form? form;
 
   final bool isLoading;
 
   final bool isValid;
 
-  final List<FormPropertyValue> resultProperties;
+  final List<FormPropertyValue>? resultProperties;
 
-  bool get isEmpty => form.children.isEmpty;
+  bool get isEmpty => form == null ? true : form!.children.isEmpty;
 
-  DynamicFormState(
-      {this.form,
-      this.isLoading = false,
-      this.isValid = false,
-      this.resultProperties});
+  DynamicFormState({
+    this.form,
+    this.isLoading = false,
+    this.isValid = false,
+    this.resultProperties
+  });
 
-  DynamicFormState copyWith(
-      {Form form,
-      bool isLoading,
-      bool isValid,
-      List<FormPropertyValue> resultProperties}) {
+  DynamicFormState copyWith({
+    Form? form,
+    bool? isLoading,
+    bool? isValid,
+    List<FormPropertyValue>? resultProperties}) {
     return DynamicFormState(
         form: form ?? this.form,
         isLoading: isLoading ?? this.isLoading,

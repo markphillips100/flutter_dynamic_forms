@@ -10,10 +10,8 @@ import 'dynamic_form_state.dart';
 class DynamicFormBloc extends Bloc<FormElementEvent, DynamicFormState> {
   CustomFormManager formManager;
 
-  DynamicFormBloc(this.formManager);
-
-  @override
-  DynamicFormState get initialState => DynamicFormState();
+  DynamicFormBloc(this.formManager)
+    : super(DynamicFormState());
 
   @override
   Stream<DynamicFormState> mapEventToState(FormElementEvent event) async* {
@@ -28,7 +26,7 @@ class DynamicFormBloc extends Bloc<FormElementEvent, DynamicFormState> {
       yield state.copyWith(
           isLoading: false,
           isValid: formManager.isFormValid,
-          form: formManager.form);
+          form: formManager.form as Form);
       return;
     }
 
@@ -37,7 +35,7 @@ class DynamicFormBloc extends Bloc<FormElementEvent, DynamicFormState> {
       yield state.copyWith(
           isLoading: false,
           isValid: formManager.isFormValid,
-          form: formManager.form);
+          form: formManager.form as Form);
       return;
     }
 
@@ -45,7 +43,7 @@ class DynamicFormBloc extends Bloc<FormElementEvent, DynamicFormState> {
       yield state.copyWith(
           isLoading: false,
           isValid: formManager.isFormValid,
-          form: formManager.form,
+          form: formManager.form as Form,
           resultProperties: formManager.getFormProperties());
       return;
     }
@@ -54,8 +52,8 @@ class DynamicFormBloc extends Bloc<FormElementEvent, DynamicFormState> {
       yield state.copyWith(
           isLoading: false,
           isValid: formManager.isFormValid,
-          form: formManager.form,
-          resultProperties: List<FormPropertyValue>());
+          form: formManager.form as Form,
+          resultProperties: []);
       return;
     }
 

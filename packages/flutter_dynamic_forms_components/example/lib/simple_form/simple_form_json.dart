@@ -12,7 +12,7 @@ class SimpleFormJson extends StatefulWidget {
 
 class _SimpleFormJsonState extends State<SimpleFormJson> {
   bool isLoading = true;
-  String fileContent;
+  late String fileContent;
 
   @override
   void initState() {

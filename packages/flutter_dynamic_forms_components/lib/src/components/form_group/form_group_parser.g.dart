@@ -16,7 +16,7 @@ class FormGroupParser<TFormGroup extends FormGroup>
   void fillProperties(
     TFormGroup formGroup, 
     ParserNode parserNode, 
-    Element parent,
+    Element? parent,
     ElementParserFunction parser,
   ) {
     super.fillProperties(formGroup, parserNode, parent, parser);

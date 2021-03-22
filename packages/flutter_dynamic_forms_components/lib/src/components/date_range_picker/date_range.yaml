@@ -2,17 +2,17 @@ type: dateRange
 parentType: formElement
 properties:
   firstValue:
-    type: dateTime
+    type: dateTime?
     isMutable: true
   secondValue:
-    type: dateTime
+    type: dateTime?
     isMutable: true
   label:
     type: string
   format:
     type: string
   initialDate:
-    type: dateTime
+    type: dateTime?
   minDate:
     type: dateTime
     default: "19690101"

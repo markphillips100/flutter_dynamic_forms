@@ -12,7 +12,7 @@ class SimpleFormXml extends StatefulWidget {
 
 class _SimpleFormXmlState extends State<SimpleFormXml> {
   bool isLoading = true;
-  String fileContent;
+  late String fileContent;
 
   @override
   void initState() {

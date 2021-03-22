@@ -4,6 +4,9 @@ import 'package:flutter_dynamic_forms/flutter_dynamic_forms.dart';
 
 import 'package:flutter_dynamic_forms_components/flutter_dynamic_forms_components.dart'
     as model;
+
+import 'package:collection/collection.dart';
+
 import 'text_field_widget.dart';
 
 class ReactiveTextFieldRenderer extends FormElementRenderer<model.TextField> {
@@ -17,7 +20,7 @@ class ReactiveTextFieldRenderer extends FormElementRenderer<model.TextField> {
       stream: element.propertyChanged,
       builder: (context, _) {
         var errorText = element.validations
-            .firstWhere((v) => !v.isValid, orElse: () => null)
+            .firstWhereOrNull((v) => !v.isValid)
             ?.message;
         return TextFieldWidget(
           text: element.value,

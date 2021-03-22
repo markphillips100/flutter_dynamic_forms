@@ -3,21 +3,21 @@ import 'package:flutter_dynamic_forms/flutter_dynamic_forms.dart';
 import 'package:flutter_dynamic_forms_components/src/components/text_field/text_field_input_type.g.dart';
 
 class TextFieldWidget extends StatefulWidget {
-  final String id;
+  final String? id;
   final String text;
-  final String errorText;
-  final String label;
+  final String? errorText;
+  final String? label;
   final TextFieldInputType textInputType;
   final FormElementEventDispatcherFunction dispatcher;
 
   const TextFieldWidget({
-    Key key,
+    Key? key,
     this.id,
-    this.text,
+    required this.text,
     this.label,
-    this.dispatcher,
+    required this.dispatcher,
     this.errorText,
-    this.textInputType,
+    required this.textInputType,
   }) : super(key: key);
 
   @override
@@ -27,23 +27,23 @@ class TextFieldWidget extends StatefulWidget {
 class _TextFieldWidgetState extends State<TextFieldWidget> {
   TextEditingController _controller = TextEditingController();
 
-  VoidCallback _listener;
+  VoidCallback? _listener;
 
   @override
   void initState() {
     super.initState();
     _listener = () => widget.dispatcher(
-          ChangeValueEvent(value: _controller.text, elementId: widget.id),
+          ChangeValueEvent(value: _controller.text, elementId: widget.id!),
         );
-    _controller.addListener(_listener);
+    _controller.addListener(_listener!);
   }
 
   @override
   void dispose() {
     if (_listener != null) {
-      _controller?.removeListener(_listener);
+      _controller.removeListener(_listener!);
     }
-    _controller?.dispose();
+    _controller.dispose();
     super.dispose();
   }
 

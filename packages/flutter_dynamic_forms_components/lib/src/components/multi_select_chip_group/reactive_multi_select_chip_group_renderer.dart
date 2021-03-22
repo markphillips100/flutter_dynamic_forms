@@ -12,7 +12,7 @@ class ReactiveMultiSelectChipGroupRenderer
       BuildContext context,
       FormElementEventDispatcherFunction dispatcher,
       FormElementRendererFunction renderer) {
-    List<Stream> streamsToReact = List<Stream>();
+    List<Stream> streamsToReact = [];
     streamsToReact.addAll(element.choices.map((o) => o.isVisibleChanged));
     streamsToReact.add(element.propertyChanged);
     return StreamBuilder<List<model.MultiSelectChipChoice>>(
@@ -21,7 +21,7 @@ class ReactiveMultiSelectChipGroupRenderer
       builder: (context, snapshot) {
         return StreamBuilder(
           stream: MergeStream(
-            snapshot.data.map((child) => child.isVisibleChanged),
+            snapshot.data!.map((child) => child.isVisibleChanged),
           ),
           builder: (context, _) => Wrap(
             children: element.choices

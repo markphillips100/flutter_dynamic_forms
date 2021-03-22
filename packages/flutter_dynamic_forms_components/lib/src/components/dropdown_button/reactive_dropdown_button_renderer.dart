@@ -12,7 +12,7 @@ class ReactiveDropdownButtonRenderer
       BuildContext context,
       FormElementEventDispatcherFunction dispatcher,
       FormElementRendererFunction renderer) {
-    List<Stream> streamsToReact = List<Stream>();
+    List<Stream> streamsToReact = [];
     streamsToReact.addAll(element.choices.map((o) => o.isVisibleChanged));
     streamsToReact.add(element.propertyChanged);
 
@@ -22,7 +22,7 @@ class ReactiveDropdownButtonRenderer
         return Center(
           child: DropdownButton<String>(
             value: element.value,
-            onChanged: (String newValue) => dispatcher(
+            onChanged: (String? newValue) => dispatcher(
               ChangeValueEvent(
                   value: newValue,
                   elementId: element.id,

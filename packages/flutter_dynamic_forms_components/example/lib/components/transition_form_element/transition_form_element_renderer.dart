@@ -18,13 +18,11 @@ class TransitionFormElementRenderer
           child: child,
           expand: true,
         );
-        break;
       case FormElementTransitionType.hide:
         return ExpandableSection(
           child: child,
           expand: false,
         );
-        break;
       default:
         throw Exception('Unknown transition type');
     }
@@ -34,7 +32,7 @@ class TransitionFormElementRenderer
 class ExpandableSection extends StatefulWidget {
   final Widget child;
   final bool expand;
-  ExpandableSection({this.expand = false, this.child});
+  ExpandableSection({this.expand = false, required this.child});
 
   @override
   _ExpandableSectionState createState() => _ExpandableSectionState();
@@ -42,8 +40,8 @@ class ExpandableSection extends StatefulWidget {
 
 class _ExpandableSectionState extends State<ExpandableSection>
     with SingleTickerProviderStateMixin {
-  AnimationController expandController;
-  Animation<double> animation;
+  late AnimationController expandController;
+  late Animation<double> animation;
 
   @override
   void initState() {
@@ -54,7 +52,7 @@ class _ExpandableSectionState extends State<ExpandableSection>
   void prepareAnimations() {
     expandController = AnimationController(
         vsync: this, duration: TransitionFormBloc.transitionDuration);
-    Animation curve = CurvedAnimation(
+    Animation<double> curve = CurvedAnimation(
       parent: expandController,
       curve: Curves.linear,
     );

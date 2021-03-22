@@ -8,17 +8,17 @@ class ParsedFormProvider<T extends ParsedFormManager> extends StatelessWidget {
   final String content;
   final List<FormElementParser<FormElement>> parsers;
   final List<FunctionExpressionFactory> expressionFactories;
-  final Widget child;
+  final Widget? child;
   final bool lazy;
 
   const ParsedFormProvider({
-    Key key,
-    @required this.content,
-    @required this.parsers,
-    @required this.create,
+    Key? key,
+    required this.content,
+    required this.parsers,
+    required this.create,
     this.child,
     this.expressionFactories = const [],
-    this.lazy,
+    this.lazy = false,
   }) : super(key: key);
 
   @override
