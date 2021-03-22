@@ -15,10 +15,13 @@ dependencies:
   expression_language:
     git:
       url: https://github.com/markphillips100/flutter_dynamic_forms.git
+      ref: null-safety
       path: packages/expression_language
+
   dynamic_forms:
     git:
       url: https://github.com/markphillips100/flutter_dynamic_forms.git
+      ref: null-safety
       path: packages/dynamic_forms
 
 dev_dependencies:
