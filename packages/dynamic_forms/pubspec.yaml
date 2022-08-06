@@ -14,10 +14,9 @@ dependencies:
   collection: ^1.15.0
 
   expression_language:
-    # git:
-    #   url: https://github.com/markphillips100/flutter_dynamic_forms.git
-    #   path: packages/expression_language
-    path: ../expression_language
+    git:
+      url: https://github.com/markphillips100/flutter_dynamic_forms.git
+      path: packages/expression_language
 
 dev_dependencies:
   test: ^1.16.0

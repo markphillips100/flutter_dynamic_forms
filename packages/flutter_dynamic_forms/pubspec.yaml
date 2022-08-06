@@ -14,15 +14,13 @@ dependencies:
   provider: ^6.0.0
 
   dynamic_forms:
-    path: ../dynamic_forms
-    # git:
-    #   url: https://github.com/markphillips100/flutter_dynamic_forms.git
-    #   path: packages/dynamic_forms
+    git:
+      url: https://github.com/markphillips100/flutter_dynamic_forms.git
+      path: packages/dynamic_forms
   expression_language:
-    path: ../expression_language
-    # git:
-    #   url: https://github.com/markphillips100/expression_language.git
-    #   path: packages/expression_language
+    git:
+      url: https://github.com/markphillips100/expression_language.git
+      path: packages/expression_language
 
 dev_dependencies:
   flutter_test:
