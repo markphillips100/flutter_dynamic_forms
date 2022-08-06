@@ -14,7 +14,7 @@ dependencies:
   flutter_dynamic_forms_components:
     path: ../
   flutter_bloc: ^7.0.0
-  collection: ^1.16.0
+  collection: ^1.15.0
 
 dev_dependencies:
   flutter_test:
