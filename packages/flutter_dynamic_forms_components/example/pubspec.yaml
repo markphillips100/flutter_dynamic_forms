@@ -2,8 +2,10 @@ name: example
 description: A flutter example of dynamic forms project with default components.
 version: 0.2.0
 
+publish_to: none
+
 environment:
-  sdk: ">=2.6.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
   flutter:
@@ -12,11 +14,12 @@ dependencies:
   flutter_dynamic_forms_components:
     path: ../
   flutter_bloc: ^7.0.0
+  collection: ^1.15.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  pedantic: ^1.8.0+1
+  pedantic: ^1.11.0
 
 flutter:
   uses-material-design: true

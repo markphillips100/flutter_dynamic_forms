@@ -105,6 +105,10 @@ Feature: Expression
     When expression "duration("P5D1H3S") >= duration("P5D1H3S") - duration("P1S")" is evaluated
     Then bool expression result is "true"
 
+  Scenario: Not equal operator
+    When expression "3 != 2" is evaluated
+    Then bool expression result is "true"
+
   Scenario: DateTime constructor test
     When expression "dateTime("1997-07-16T19:20")" is evaluated
     Then DateTime expression result is "1997-07-16T19:20"
@@ -524,7 +528,7 @@ Feature: Expression
   Scenario: resolve dependency @testElement.value - default
     Given form element is provided
     When expression "@testElement + 5" is evaluated
-    Then int expression result is "32"
+    Then "InvalidSyntaxException" exception is thrown
 
   Scenario: resolve dependency @testElement.value
     Given form element is provided
@@ -622,3 +626,58 @@ Feature: Expression
   Scenario: String concatenation
     When expression ""ab" + "cd"" is evaluated
     Then string expression result is "abcd"
+
+  Scenario: Nullable int
+    Given form element is provided
+    When expression "@testElement.nullableIntValue! - 5" is evaluated
+    Then int expression result is "9"
+
+  Scenario: Nullable integer
+    Given form element is provided
+    When expression "@testElement.nullableIntegerValue! - 5" is evaluated
+    Then int expression result is "22"
+
+  Scenario: Nullable bool
+    Given form element is provided
+    When expression "@testElement.nullableBoolValue!" is evaluated
+    Then bool expression result is "true"
+
+  Scenario: Nullable double
+    Given form element is provided
+    When expression "@testElement.nullableDoubleValue! + 3" is evaluated
+    Then decimal expression result is "9.5"
+
+  Scenario: Negate Nullable bool
+    Given form element is provided
+    When expression "!(@testElement.nullableBoolValue!)" is evaluated
+    Then bool expression result is "false"
+
+  Scenario: Nullable Decimal
+    Given form element is provided
+    When expression "@testElement.nullableDecimalValue! + 3" is evaluated
+    Then decimal expression result is "9.5"
+
+  Scenario: Nullable DateTime
+    Given form element is provided
+    When expression "!isNull(@testElement.nullableDateValue!)" is evaluated
+    Then bool expression result is "true"
+
+  Scenario: Null integer
+    Given form element is provided
+    When expression "isNull(@testElement.nullIntegerValue)" is evaluated
+    Then bool expression result is "true"
+
+  Scenario: Null reference exception
+    Given form element is provided
+    When expression "@testElement.nullIntegerValue! + 5" is evaluated
+    Then "NullReferenceException" exception is thrown
+
+  Scenario: Resolve underscore reference
+    Given form element is provided
+    When expression "@testElement.underscore_name + 5" is evaluated
+    Then int expression result is "15"
+    
+  Scenario: Resolve underscore identifier
+    Given form element is provided
+    When expression "@underscore_test_element.underscore_name + 5" is evaluated
+    Then int expression result is "15"

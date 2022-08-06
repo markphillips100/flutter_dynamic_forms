@@ -12,7 +12,7 @@ class SimpleSubmitForm extends StatefulWidget {
 
 class _SimpleSubmitFormState extends State<SimpleSubmitForm> {
   bool isLoading = true;
-  String fileContent;
+  late String fileContent;
 
   @override
   void initState() {
@@ -45,14 +45,14 @@ class _SimpleSubmitFormState extends State<SimpleSubmitForm> {
                   child: Column(
                     children: [
                       FormRenderer<JsonFormManager>(
-                        renderers: components.getReactiveRenderers(),
+                        renderers: components.getRenderers(),
                       ),
                       // Using Builder to obtain a BuildContext already containg JsonFormManager
                       Builder(
                         builder: (context) {
                           return Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: RaisedButton(
+                            child: ElevatedButton(
                               child: Text('Submit'),
                               onPressed: () {
                                 var formProperties =
@@ -92,7 +92,7 @@ class _SimpleSubmitFormState extends State<SimpleSubmitForm> {
             ),
           ),
           actions: <Widget>[
-            FlatButton(
+            TextButton(
               child: Text('Ok'),
               onPressed: () {
                 Navigator.of(context).pop();
