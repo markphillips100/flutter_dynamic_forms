@@ -1,25 +1,28 @@
 import 'package:dynamic_forms/dynamic_forms.dart';
-import 'package:dynamic_forms/src/form_manager/form_item_value.dart';
+import 'package:dynamic_forms/src/form_manager/form_data.dart';
+import 'package:dynamic_forms/src/form_manager/form_property_value.dart';
 import 'package:dynamic_forms/src/iterators/form_element_iterator.dart';
 import 'package:expression_language/expression_language.dart';
-import 'package:meta/meta.dart';
 
-class FormManager {
-  FormElement form;
-  Map<String, FormElement> formElementMap;
-  Map<String, Validation> formValidations;
-
-  List<MutableProperty> mutableValues;
-
-  FormManager(
-      this.form, this.formElementMap, this.formValidations, this.mutableValues);
+abstract class FormManager {
+  late FormElement form;
+  late Map<String, FormElement> formElementMap;
+  late List<Validation> validations;
+  late List<MutableProperty> mutableValues;
 
   bool get isFormValid {
-    return formValidations.values.every((v) => (v.isValid));
+    return validations.every((v) => (v.isValid));
   }
 
-  List<FormItemValue> getFormData() {
-    var result = <FormItemValue>[];
+  void fillFromFormData(FormData formData) {
+    form = formData.form;
+    formElementMap = formData.formElementMap;
+    validations = formData.validations;
+    mutableValues = formData.mutableValues;
+  }
+
+  List<FormPropertyValue> getFormProperties() {
+    var result = <FormPropertyValue>[];
     var formElements = getFormElementIterator<FormElement>(form).toList();
 
     formElements.forEach((fe) {
@@ -28,7 +31,7 @@ class FormManager {
         if (propVal is MutableProperty &&
             !(propVal is Property<ExpressionProviderElement>) &&
             !(propVal is Property<List<ExpressionProviderElement>>)) {
-          result.add(FormItemValue(fe.id, name, propVal.value.toString()));
+          result.add(FormPropertyValue(fe.id!, name, propVal.value.toString()));
         }
       });
     });
@@ -41,9 +44,9 @@ class FormManager {
   }
 
   void changeValue<T>({
-    @required T value,
-    @required String elementId,
-    String propertyName,
+    required T value,
+    required String elementId,
+    String? propertyName,
     bool ignoreLastChange = false,
   }) {
     if (!formElementMap.containsKey(elementId)) {
@@ -51,16 +54,15 @@ class FormManager {
           'Value cannot be changed because element $elementId is not present');
       return;
     }
-    var formElement = formElementMap[elementId];
+    var formElement = formElementMap[elementId]!;
     var property = formElement.getProperty(propertyName);
-    var mutableValue = property as MutableProperty<T>;
-    if (mutableValue == null) {
+    if (property is MutableProperty<T>) {
+      property.setValue(value, ignoreLastChange: ignoreLastChange);
+    } else {
       print(
           'Value cannot be changed because element $elementId is not mutable');
-      return;
     }
-    mutableValue.setValue(value, ignoreLastChange: ignoreLastChange);
-
-    return;
   }
+
+  void close() {}
 }

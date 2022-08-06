@@ -1,17 +1,15 @@
 import 'package:bloc/bloc.dart';
-import 'package:dynamic_forms/dynamic_forms.dart';
+import 'package:example/bloc_dynamic_form/custom_form_manager.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_dynamic_forms/flutter_dynamic_forms.dart';
+import 'package:flutter_dynamic_forms_components/flutter_dynamic_forms_components.dart';
 import 'dynamic_form_event.dart';
 import 'dynamic_form_state.dart';
 
 class DynamicFormBloc extends Bloc<FormElementEvent, DynamicFormState> {
-  final FormManagerBuilder formManagerBuilder;
+  CustomFormManager formManager;
 
-  FormManager formManager;
-
-  DynamicFormBloc(this.formManagerBuilder)
-    : super(DynamicFormState());
+  DynamicFormBloc(this.formManager) : super(DynamicFormState());
 
   @override
   Stream<DynamicFormState> mapEventToState(FormElementEvent event) async* {
@@ -21,12 +19,12 @@ class DynamicFormBloc extends Bloc<FormElementEvent, DynamicFormState> {
       await Future.delayed(Duration(seconds: 1));
       var xml =
           await rootBundle.loadString('assets/test_form1.xml', cache: false);
-      formManager = formManagerBuilder.build(xml);
+      formManager.init(content: xml, parsers: getDefaultParserList());
 
       yield state.copyWith(
           isLoading: false,
           isValid: formManager.isFormValid,
-          form: formManager.form);
+          form: formManager.form as Form?);
       return;
     }
 
@@ -35,7 +33,7 @@ class DynamicFormBloc extends Bloc<FormElementEvent, DynamicFormState> {
       yield state.copyWith(
           isLoading: false,
           isValid: formManager.isFormValid,
-          form: formManager.form);
+          form: formManager.form as Form?);
       return;
     }
 
@@ -43,8 +41,8 @@ class DynamicFormBloc extends Bloc<FormElementEvent, DynamicFormState> {
       yield state.copyWith(
           isLoading: false,
           isValid: formManager.isFormValid,
-          form: formManager.form,
-          resultItemValues: formManager.getFormData());
+          form: formManager.form as Form?,
+          resultProperties: formManager.getFormProperties());
       return;
     }
 
@@ -52,8 +50,8 @@ class DynamicFormBloc extends Bloc<FormElementEvent, DynamicFormState> {
       yield state.copyWith(
           isLoading: false,
           isValid: formManager.isFormValid,
-          form: formManager.form,
-          resultItemValues: List<FormItemValue>());
+          form: formManager.form as Form?,
+          resultProperties: []);
       return;
     }
 

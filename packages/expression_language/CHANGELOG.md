@@ -1,3 +1,28 @@
+# 1.0.1
+
+* Fixed issue when not equal operator `!=` was clashing with postfix exclamation mark operator.  
+
+# 1.0.0
+
+* Stable null safety release.
+* Expression types are now mapped to dart nullable and non-nullable types.
+* Added a postfix exclamation mark (!) operator to cast away nullability.
+* Underscore is now valid element identifier.
+
+# 0.4.0
+
+* Added support for custom expressions.
+* Removed visitor functionality from expressions.
+* Improved documentation.
+
+# 0.3.2
+
+Added support for dateTime in expressions.
+
+# 0.3.1
+
+Added isNull and isNullOrEmpty functions.
+
 # 0.3.0
 
 * Increased petitparser dependency to ^3.0.0

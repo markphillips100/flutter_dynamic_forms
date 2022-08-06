@@ -1,5 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
+//ignore_for_file: unused_import
 import 'package:flutter_dynamic_forms_components/flutter_dynamic_forms_components.dart';
 import 'package:dynamic_forms/dynamic_forms.dart';
 
@@ -15,7 +16,7 @@ class SliderParser<TSlider extends Slider>
   void fillProperties(
     TSlider slider, 
     ParserNode parserNode, 
-    Element parent,
+    Element? parent,
     ElementParserFunction parser,
   ) {
     super.fillProperties(slider, parserNode, parent, parser);
@@ -27,7 +28,7 @@ class SliderParser<TSlider extends Slider>
       )
       ..divisionProperty = parserNode.getIntProperty(
         'division',      
-        defaultValue: () => 0,
+        defaultValue: ParserNode.defaultInt,
         isImmutable: true,
       )
       ..inactiveColorProperty = parserNode.getIntProperty(
@@ -42,17 +43,17 @@ class SliderParser<TSlider extends Slider>
       )
       ..maxValueProperty = parserNode.getDoubleProperty(
         'maxValue',
-        defaultValue: () => 0,
+        defaultValue: ParserNode.defaultDouble,
         isImmutable: true,
       )
       ..minValueProperty = parserNode.getDoubleProperty(
         'minValue',
-        defaultValue: () => 0,
+        defaultValue: ParserNode.defaultDouble,
         isImmutable: true,
       )
-      ..valueProperty = parserNode.getDoubleProperty(
+      ..valueProperty = parserNode.getNullableDoubleProperty(
         'value',
-        defaultValue: () => 0,
+        defaultValue: () => null,
         isImmutable: false,
       );
   }

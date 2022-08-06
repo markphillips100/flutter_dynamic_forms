@@ -1,7 +1,10 @@
+// @dart=2.9
+
 import 'dart:async';
 import 'package:gherkin/gherkin.dart';
 import 'package:glob/glob.dart';
-import 'supporting_files/steps/when_then_expression_num.dart';
+
+import 'supporting_files/index.dart';
 
 void main() async {
   final config = TestConfiguration()
@@ -18,6 +21,7 @@ void main() async {
     }
     ..stepDefinitions = [
       GivenFormElementIsProvided(),
+      GivenCustomExpressionIsProvided(),
       WhenExpressionIsEvaluated(),
       ThenIntExpressionResult(),
       ThenStringExpressionResult(),

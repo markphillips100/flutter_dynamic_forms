@@ -29,7 +29,7 @@ class TransitionFormScreen extends StatelessWidget {
 
 class TransitionFormButtonRow extends StatelessWidget {
   const TransitionFormButtonRow({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -41,9 +41,11 @@ class TransitionFormButtonRow extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            OutlineButton(
-              borderSide: BorderSide(
-                color: state.selectedForm == 1 ? Colors.blue : Colors.black12,
+            OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                side: BorderSide(
+                  color: state.selectedForm == 1 ? Colors.blue : Colors.black12,
+                ),
               ),
               child: Row(
                 children: <Widget>[
@@ -61,9 +63,11 @@ class TransitionFormButtonRow extends StatelessWidget {
               },
             ),
             SizedBox(width: 10),
-            OutlineButton(
-              borderSide: BorderSide(
-                color: state.selectedForm == 2 ? Colors.blue : Colors.black12,
+            OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                side: BorderSide(
+                  color: state.selectedForm == 2 ? Colors.blue : Colors.black12,
+                ),
               ),
               child: Row(
                 children: <Widget>[
@@ -80,9 +84,12 @@ class TransitionFormButtonRow extends StatelessWidget {
               },
             ),
             SizedBox(width: 10),
-            OutlineButton(
-                borderSide: BorderSide(
-                  color: state.selectedForm == 3 ? Colors.blue : Colors.black12,
+            OutlinedButton(
+                style: OutlinedButton.styleFrom(
+                  side: BorderSide(
+                    color:
+                        state.selectedForm == 3 ? Colors.blue : Colors.black12,
+                  ),
                 ),
                 child: Row(
                   children: <Widget>[

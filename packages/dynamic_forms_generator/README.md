@@ -33,6 +33,7 @@ targets:
             - "validation.yaml"
             comments:
             - "ignore_for_file: unused_import"
+            strongly_cast_properties: false
 ```
 `default_imports` will generate this import line to the both of model and parser files.
 
@@ -41,6 +42,8 @@ targets:
 Options `model_imports` and `parser_imports` generate imports at the beginning of the model or parser file. To distinct between different types of models there are also `form_element_model_imports`, `value_element_model_imports` and `enum_element_model_imports`.
 
 Option `comments` generate comments at the beginning of each file. 
+
+Option `strongly_cast_properties` will cast each property to its corresponding type after obtaining it from `properties` dictionary in the model class. Default is false.
 
 For each component you would need corresponding `component_name.yaml` file in the format below.
 
@@ -127,7 +130,9 @@ There are multiple types that can be set to the `type` in the property descripti
 * `customformElement` - name of the other component
 * `customformElement[]` - array of the other components
 
-Each type is nullable and when property is not set it defaults to the `null` (unless `default` key is defined).
+Each type can be make nullable by appending `?` suffix.
+
+When `default` value is nullable and when property is not set it defaults to the `null`. For non-nullable values it defaults to `0` for numbers, empty string for `String`, `false` for `bool` and min date time for `DateTime`.
 
 ### YAML -> XML
 In XML the `name` corresponds to the element name. 

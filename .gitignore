@@ -12,7 +12,6 @@ pubspec.lock
 .flutter-plugins
 *.iml
 coverage/
-.test_coverage.dart
 *.log
 coverage_badge.svg
 
@@ -22,3 +21,4 @@ packages/expression_language/test/report.json
 
 !packages/**/example/ios/
 !packages/**/example/android/
+packages/flutter_dynamic_forms_components/example/ios/Flutter/flutter_export_environment.sh

@@ -1,5 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
+//ignore_for_file: unused_import
 import 'package:flutter_dynamic_forms_components/flutter_dynamic_forms_components.dart';
 import 'package:dynamic_forms/dynamic_forms.dart';
 
@@ -15,12 +16,12 @@ class DateParser<TDate extends Date>
   void fillProperties(
     TDate date, 
     ParserNode parserNode, 
-    Element parent,
+    Element? parent,
     ElementParserFunction parser,
   ) {
     super.fillProperties(date, parserNode, parent, parser);
     date
-      ..firstDateProperty = parserNode.getDateTimeProperty(
+      ..firstDateProperty = parserNode.getNullableDateTimeProperty(
         'firstDate',
         defaultValue: () => null,
         isImmutable: true,
@@ -32,7 +33,7 @@ class DateParser<TDate extends Date>
       )
       ..initialDateProperty = parserNode.getDateTimeProperty(
         'initialDate',
-        defaultValue: () => null,
+        defaultValue: ParserNode.defaultDateTime,
         isImmutable: true,
       )
       ..labelProperty = parserNode.getStringProperty(
@@ -40,12 +41,12 @@ class DateParser<TDate extends Date>
         defaultValue: ParserNode.defaultString,
         isImmutable: true,
       )
-      ..lastDateProperty = parserNode.getDateTimeProperty(
+      ..lastDateProperty = parserNode.getNullableDateTimeProperty(
         'lastDate',
         defaultValue: () => null,
         isImmutable: true,
       )
-      ..valueProperty = parserNode.getDateTimeProperty(
+      ..valueProperty = parserNode.getNullableDateTimeProperty(
         'value',
         defaultValue: () => null,
         isImmutable: false,

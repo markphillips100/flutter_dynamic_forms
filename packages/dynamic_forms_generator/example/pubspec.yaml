@@ -1,16 +1,17 @@
 name: example
 description: example
 version: 1.0.0+1
+publish_to: none
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   dynamic_forms:
     path: ../../dynamic_forms
 
 dev_dependencies:
-  pedantic: ^1.9.0
+  pedantic: ^1.11.0
   build_runner: ^1.0.0
   dynamic_forms_generator:
     path: ../

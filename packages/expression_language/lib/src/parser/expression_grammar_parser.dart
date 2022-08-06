@@ -4,14 +4,35 @@ import 'package:expression_language/src/grammar/expression_grammar_definition.da
 import 'package:expression_language/src/number_type/decimal.dart';
 import 'package:expression_language/src/number_type/integer.dart';
 import 'package:expression_language/src/number_type/number.dart';
+import 'package:expression_language/src/parser/function_expression_factories/default_function_expression_factories.dart';
 import 'package:expression_language/src/parser/expression_factory.dart';
 import 'package:expression_language/src/parser/expression_parser_exceptions.dart';
+import 'package:expression_language/src/parser/function_expression_factory.dart';
 import 'package:petitparser/petitparser.dart';
 
 class ExpressionGrammarParser extends ExpressionGrammarDefinition {
   final Map<String, ExpressionProviderElement> expressionProviderElementMap;
+  final List<FunctionExpressionFactory> customFunctionExpressionFactories;
+  final Map<String, FunctionExpressionFactoryMethod> _expressionFactories;
+  ExpressionGrammarParser(
+    this.expressionProviderElementMap, {
+    this.customFunctionExpressionFactories = const [],
+  }) : _expressionFactories = _createFunctionExpressionFactoriesMap(
+            customFunctionExpressionFactories);
 
-  ExpressionGrammarParser(this.expressionProviderElementMap);
+  static Map<String, FunctionExpressionFactoryMethod>
+      _createFunctionExpressionFactoriesMap(
+          List<FunctionExpressionFactory> customFunctionExpressionFactories) {
+    var customMap = {
+      for (var v in customFunctionExpressionFactories)
+        v.functionName: v.createExpression
+    };
+    var defaultMap = {
+      for (var v in getDefaultFunctionExpressionFactories())
+        v.functionName: v.createExpression
+    };
+    return defaultMap..addAll(customMap);
+  }
 
   @override
   Parser failureState() => super.failureState().map((c) {
@@ -88,7 +109,8 @@ class ExpressionGrammarParser extends ExpressionGrammarDefinition {
           if ((item[0] is List) &&
               (item[0][0].value == '~') &&
               (item[0][1].value == '/')) {
-            left = IntegerDivisionNumberExpression(left, right);
+            left = IntegerDivisionNumberExpression(
+                left as Expression<Number>, right as Expression<Number>);
             continue;
           }
           if (item[0].value == '*') {
@@ -114,7 +136,8 @@ class ExpressionGrammarParser extends ExpressionGrammarDefinition {
             continue;
           }
           if (item[0].value == '%') {
-            left = ModuloExpression(left, right);
+            left = ModuloExpression(
+                left as Expression<Number>, right as Expression<Number>);
             continue;
           }
           throw UnknownExpressionTypeException(
@@ -147,6 +170,15 @@ class ExpressionGrammarParser extends ExpressionGrammarDefinition {
       });
 
   @override
+  Parser postfixOperatorExpression() =>
+      super.postfixOperatorExpression().map((c) {
+        if (c[1] == null) {
+          return c[0];
+        }
+        return createNonNullableConversionExpression(c[0]);
+      });
+
+  @override
   Parser conditionalExpression() => super.conditionalExpression().map((c) {
         if (c[1] == null) {
           return c[0];
@@ -159,7 +191,8 @@ class ExpressionGrammarParser extends ExpressionGrammarDefinition {
         Expression expression = c[0];
         for (var item in c[1]) {
           if (item[0].value == '||') {
-            expression = LogicalOrExpression(expression, item[1]);
+            expression =
+                LogicalOrExpression(expression as Expression<bool>, item[1]);
             continue;
           }
           throw UnknownExpressionTypeException(
@@ -173,7 +206,8 @@ class ExpressionGrammarParser extends ExpressionGrammarDefinition {
         Expression expression = c[0];
         for (var item in c[1]) {
           if (item[0].value == '&&') {
-            expression = LogicalAndExpression(expression, item[1]);
+            expression =
+                LogicalAndExpression(expression as Expression<bool>, item[1]);
             continue;
           }
           throw UnknownExpressionTypeException(
@@ -294,7 +328,7 @@ class ExpressionGrammarParser extends ExpressionGrammarDefinition {
           throw NullReferenceException(
               'Reference named {$elementId} does not exist.');
         }
-        ExpressionProvider expressionProvider;
+        ExpressionProvider? expressionProvider;
         if (c[2].length == 0) {
           expressionProvider =
               expressionProviderElement.getExpressionProvider();
@@ -304,7 +338,7 @@ class ExpressionGrammarParser extends ExpressionGrammarDefinition {
           var propertyName = c[2][i][1];
           expressionPath.add(propertyName);
           expressionProvider =
-              expressionProviderElement.getExpressionProvider(propertyName);
+              expressionProviderElement!.getExpressionProvider(propertyName);
           if (expressionProvider
               is ExpressionProvider<ExpressionProviderElement>) {
             expressionProviderElement =
@@ -346,9 +380,8 @@ class ExpressionGrammarParser extends ExpressionGrammarDefinition {
   Parser literal() => super.literal().map((c) => c.value);
 
   @override
-  Parser function() => super
-      .function()
-      .map((c) => createFunctionExpression(c[0], c[2] ?? <Expression>[]));
+  Parser function() => super.function().map((c) => createFunctionExpression(
+      c[0], c[2] ?? <Expression>[], _expressionFactories));
 
   @override
   Parser TRUE() =>
