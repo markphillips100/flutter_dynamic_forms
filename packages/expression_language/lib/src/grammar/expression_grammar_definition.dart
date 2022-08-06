@@ -101,7 +101,7 @@ class ExpressionGrammarDefinition extends GrammarDefinition {
   Parser reference() =>
       char('@') &
       ref(identifier).flatten() &
-      (char('.') & ref(identifier).flatten()).star();
+      (char('.') & ref(identifier).flatten()).plus();
 
   Parser token(Object input) {
     if (input is Parser) {

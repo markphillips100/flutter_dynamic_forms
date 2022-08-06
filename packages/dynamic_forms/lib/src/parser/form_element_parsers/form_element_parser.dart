@@ -19,7 +19,7 @@ abstract class FormElementParser<TFormElement extends FormElement>
     if (!_isIdValid(id)) {
       developer.log(
         'Warning: Invalid identifier \'$id\' for element type $TFormElement in FormElementParser.\n'
-        'Only alphanumerics characters and underscores are allowed and identifiers cannot start with a number.',
+        'Only alphanumeric characters, underscores and hypens are allowed.',
         level: 900, // 900 relates to Warning according to the package:logging
       );
     }
@@ -29,7 +29,7 @@ abstract class FormElementParser<TFormElement extends FormElement>
       ..parentProperty = parserNode.getParentProperty(parent as FormElement?);
   }
 
-  static final identifierRegexp = RegExp(r'^[a-zA-Z_][a-zA-Z0-9_]*$');
+  static final identifierRegexp = RegExp(r'^[a-zA-Z0-9_-]*$');
 
   bool _isIdValid(String? id) {
     if (id == null) {

@@ -528,7 +528,7 @@ Feature: Expression
   Scenario: resolve dependency @testElement.value - default
     Given form element is provided
     When expression "@testElement + 5" is evaluated
-    Then int expression result is "32"
+    Then "InvalidSyntaxException" exception is thrown
 
   Scenario: resolve dependency @testElement.value
     Given form element is provided
@@ -649,7 +649,7 @@ Feature: Expression
 
   Scenario: Negate Nullable bool
     Given form element is provided
-    When expression "!@testElement.nullableBoolValue!" is evaluated
+    When expression "!(@testElement.nullableBoolValue!)" is evaluated
     Then bool expression result is "false"
 
   Scenario: Nullable Decimal
