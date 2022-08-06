@@ -1,7 +1,7 @@
 name: flutter_dynamic_forms_components
 description: Flutter package containing default set of dynamic form components.
 version: 1.0.0
-homepage: https://github.com/OndrejKunc/flutter_dynamic_forms
+homepage: https://github.com/markphillips100/flutter_dynamic_forms
 publish_to: none
 
 environment:

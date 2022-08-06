@@ -1,7 +1,7 @@
 name: flutter_dynamic_forms
 description: A flutter project providing infrastructure to render dynamic forms.
 version: 1.0.0
-homepage: https://github.com/OndrejKunc/flutter_dynamic_forms
+homepage: https://github.com/markphillips100/flutter_dynamic_forms
 publish_to: none
 
 environment:
