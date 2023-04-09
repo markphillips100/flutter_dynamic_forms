@@ -34,7 +34,7 @@ void main() {
             "@name": "label",
             "id": "label2",
             "value": {
-              "expression": "\\"Welcome \\" + @label1 + \\"!\\""
+              "expression": "\\"Welcome \\" + @label1.value + \\"!\\""
             }
           }
         ]

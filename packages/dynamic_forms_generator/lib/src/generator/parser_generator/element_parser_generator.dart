@@ -155,7 +155,7 @@ abstract class ElementParserGenerator {
       )''';
     }
     if (property.isEnum) {
-      var defaultValue;
+      String defaultValue;
       if (property.defaultValue == null || property.defaultValue == '') {
         defaultValue = _getDefaultValue(
             '() => ${property.type.toTypeString()}.unknownDefaultValue',

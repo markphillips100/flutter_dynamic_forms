@@ -1,5 +1,4 @@
 import 'package:dynamic_forms/dynamic_forms.dart';
-import 'package:dynamic_forms/src/iterators/form_element_iterator.dart';
 import 'package:expression_language/expression_language.dart';
 import 'package:test/test.dart';
 
@@ -29,7 +28,7 @@ void main() {
             id="label2">
             <label.value>
               <expression><![CDATA[
-                      "Welcome " + @label1 + "!"
+                      "Welcome " + @label1.value + "!"
                   ]]></expression>
             </label.value>
         </label>
@@ -283,7 +282,7 @@ void main() {
           id="label2">
           <label.value>
             <expression><![CDATA[
-                    "Welcome " + @label1 + "!"
+                    "Welcome " + @label1.value + "!"
                 ]]></expression>
           </label.value>
         </label>

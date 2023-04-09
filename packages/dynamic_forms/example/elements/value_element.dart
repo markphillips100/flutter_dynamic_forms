@@ -1,5 +1,4 @@
 import 'package:dynamic_forms/dynamic_forms.dart';
-import 'package:dynamic_forms/src/elements/value_element.dart';
 import 'package:expression_language/src/expressions/expression_provider.dart';
 
 class ExampleValueElement extends ValueElement {
@@ -16,7 +15,7 @@ class ExampleValueElement extends ValueElement {
       ExampleValueElement(firstProperty, secondProperty);
 
   @override
-  ExpressionProvider getExpressionProvider([String propertyName]) {
+  ExpressionProvider getExpressionProvider([String? propertyName]) {
     switch (propertyName) {
       case firstPropertyName:
         {
@@ -27,7 +26,7 @@ class ExampleValueElement extends ValueElement {
           return ImmutableProperty(secondProperty);
         }
       default:
-        return null;
+        throw Exception("Can't get expressions for $propertyName");
     }
   }
 }

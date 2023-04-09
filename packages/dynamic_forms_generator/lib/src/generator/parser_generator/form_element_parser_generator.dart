@@ -78,7 +78,7 @@ class FormElementParserGenerator extends ElementParserGenerator {
           getParseMethod(property, contentProperty?.name == property.name);
       var endOfLine =
           i == componentDescription.properties.length - 1 ? ';' : '';
-      buffer.writeln('      ..$propertySetter = ${parseMethod}$endOfLine');
+      buffer.writeln('      ..$propertySetter = $parseMethod$endOfLine');
     }
 
     buffer.writeln('  }');

@@ -44,7 +44,7 @@ class ValueElementModelGenerator extends ElementModelGenerator {
     for (var property in componentDescription.properties) {
       var defaultValue = getDefaultValue(property.type.typeName);
       if (defaultValue != null) {
-        buffer.writeln('    this.${property.name} = ${defaultValue},');
+        buffer.writeln('    this.${property.name} = $defaultValue,');
       } else {
         buffer.writeln('    this.${property.name},');
       }

@@ -36,7 +36,7 @@ class GenericType extends ComponentType {
   String toTypeString() {
     var joinedTypeParameters =
         genericParameters.map((t) => t.toTypeString()).join(',');
-    return '${capitalize(typeName)}<${joinedTypeParameters}>$nullableTypeText';
+    return '${capitalize(typeName)}<$joinedTypeParameters>$nullableTypeText';
   }
 
   @override
@@ -105,7 +105,7 @@ class GenericDefinitionType extends DefinitionType {
   String toTypeString() {
     var joinedTypeParameters =
         genericParameters.map((t) => t.toTypeString()).join(',');
-    return '${capitalize(typeName)}<${joinedTypeParameters}>$nullableTypeText';
+    return '${capitalize(typeName)}<$joinedTypeParameters>$nullableTypeText';
   }
 
   @override

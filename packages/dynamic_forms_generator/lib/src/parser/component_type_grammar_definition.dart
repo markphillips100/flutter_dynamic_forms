@@ -8,47 +8,47 @@ class ComponentTypeGrammarDefinition extends GrammarDefinition {
   @override
   Parser start() {
     if (parseTypeDefinition) {
-      return ref(typeDefinitionExpression).end();
+      return ref0(typeDefinitionExpression).end();
     }
-    return ref(typeExpression).end();
+    return ref0(typeExpression).end();
   }
 
   Parser typeExpression() =>
-      ref(identifier).flatten() &
-      ref(genericParameters).optional() &
-      ref(arraySymbol).optional() &
-      ref(nullableSymbol).optional();
+      ref0(identifier).flatten() &
+      ref0(genericParameters).optional() &
+      ref0(arraySymbol).optional() &
+      ref0(nullableSymbol).optional();
 
   Parser typeDefinitionExpression() =>
-      ref(identifier).flatten() & ref(genericDefinitionParameters).optional();
+      ref0(identifier).flatten() & ref0(genericDefinitionParameters).optional();
 
   Parser genericParameters() =>
-      ref(token, '<') & ref(listOfTypes) & ref(token, '>');
+      ref1(token, '<') & ref0(listOfTypes) & ref1(token, '>');
 
-  Parser arraySymbol() => ref(token, '[]');
-  Parser nullableSymbol() => ref(token, '?');
+  Parser arraySymbol() => ref1(token, '[]');
+  Parser nullableSymbol() => ref1(token, '?');
 
   Parser genericDefinitionParameters() =>
-      ref(token, '<') &
-      ref(listOfGenericDefinitionParameterTypes) &
-      ref(token, '>');
+      ref1(token, '<') &
+      ref0(listOfGenericDefinitionParameterTypes) &
+      ref1(token, '>');
 
   Parser listOfTypes() =>
-      (ref(typeExpression) & ref(token, ',')).star() & ref(typeExpression);
+      (ref0(typeExpression) & ref1(token, ',')).star() & ref0(typeExpression);
 
   Parser listOfGenericDefinitionParameterTypes() =>
-      (ref(genericParameterTypeExpression) & ref(token, ',')).star() &
-      ref(genericParameterTypeExpression);
+      (ref0(genericParameterTypeExpression) & ref1(token, ',')).star() &
+      ref0(genericParameterTypeExpression);
 
   Parser genericParameterTypeExpression() =>
-      ref(identifier).flatten() &
-      (ref(token, 'extends') & ref(typeExpression)).optional();
+      ref0(identifier).flatten() &
+      (ref1(token, 'extends') & ref0(typeExpression)).optional();
 
   Parser anyLetter() => letter();
   Parser anyDigit() => digit();
 
   Parser identifier() =>
-      ref(anyLetter) & (ref(anyLetter) | ref(anyDigit)).star();
+      ref0(anyLetter) & (ref0(anyLetter) | ref0(anyDigit)).star();
 
   Parser token(Object input) {
     if (input is Parser) {
@@ -56,7 +56,7 @@ class ComponentTypeGrammarDefinition extends GrammarDefinition {
     } else if (input is String) {
       return token(input.length == 1 ? char(input) : string(input));
     } else if (input is Function) {
-      return token(ref(input));
+      return token(input);
     }
     throw ArgumentError.value(input, 'invalid token parser');
   }

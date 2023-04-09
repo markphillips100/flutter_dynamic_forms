@@ -1,5 +1,4 @@
 import 'package:dynamic_forms/dynamic_forms.dart';
-import 'package:dynamic_forms/src/elements/enum_element.dart';
 import 'package:expression_language/src/expressions/expression_provider.dart';
 
 enum Example { firstOption, secondOption }
@@ -15,6 +14,6 @@ class EnumElementExample extends EnumElement {
       EnumElementExample(example);
 
   @override
-  ExpressionProvider getExpressionProvider([String propertyName]) =>
+  ExpressionProvider getExpressionProvider([String? propertyName]) =>
       ImmutableProperty(example);
 }

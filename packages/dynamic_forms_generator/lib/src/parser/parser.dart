@@ -8,7 +8,7 @@ class ComponentYamlParser {
     try {
       parsedMap = loadYaml(content);
     } catch (e) {
-      print('Error parsing ${inputPath}: $e');
+      print('Error parsing $inputPath: $e');
       return null;
     }
 
@@ -52,7 +52,7 @@ class ComponentYamlParser {
       return result;
     } catch (e, stackTrace) {
       print(
-          'Error parsing ${inputPath} into the component description: $e $stackTrace');
+          'Error parsing $inputPath into the component description: $e $stackTrace');
       return null;
     }
   }
