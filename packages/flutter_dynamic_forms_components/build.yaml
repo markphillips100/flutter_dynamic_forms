@@ -7,4 +7,5 @@ targets:
             - "package:flutter_dynamic_forms_components/flutter_dynamic_forms_components.dart"
             - "package:dynamic_forms/dynamic_forms.dart"
           comments:
+            - "ignore_for_file: avoid_renaming_method_parameters"
             - "ignore_for_file: unused_import"
