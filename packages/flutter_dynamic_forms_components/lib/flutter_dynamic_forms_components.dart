@@ -1,7 +1,6 @@
 library flutter_dynamic_forms_components;
 
 export 'src/default_renderers.dart';
-export 'src/default_renderers.dart';
 export 'src/default_parsers.dart';
 
 export 'src/components/check_box/check_box.g.dart';
