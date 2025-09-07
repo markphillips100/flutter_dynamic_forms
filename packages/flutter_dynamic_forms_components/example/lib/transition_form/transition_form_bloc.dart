@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:dynamic_forms/dynamic_forms.dart';
-import 'package:example/transition_form/transition_form_builder.dart';
-import 'package:example/transition_form/transition_form_event.dart';
-import 'package:example/transition_form/transition_form_state.dart';
+import 'package:flutter_dynamic_forms_components_example/transition_form/transition_form_builder.dart';
+import 'package:flutter_dynamic_forms_components_example/transition_form/transition_form_event.dart';
+import 'package:flutter_dynamic_forms_components_example/transition_form/transition_form_state.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_dynamic_forms/flutter_dynamic_forms.dart';
 import 'package:flutter_dynamic_forms_components/flutter_dynamic_forms_components.dart';

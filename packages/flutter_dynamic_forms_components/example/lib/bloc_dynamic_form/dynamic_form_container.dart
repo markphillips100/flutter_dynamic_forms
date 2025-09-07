@@ -1,7 +1,7 @@
-import 'package:example/bloc_dynamic_form/custom_form_manager.dart';
-import 'package:example/bloc_dynamic_form/dynamic_form_bloc.dart';
-import 'package:example/bloc_dynamic_form/dynamic_form_event.dart';
-import 'package:example/bloc_dynamic_form/dynamic_form_state.dart';
+import 'package:flutter_dynamic_forms_components_example/bloc_dynamic_form/custom_form_manager.dart';
+import 'package:flutter_dynamic_forms_components_example/bloc_dynamic_form/dynamic_form_bloc.dart';
+import 'package:flutter_dynamic_forms_components_example/bloc_dynamic_form/dynamic_form_event.dart';
+import 'package:flutter_dynamic_forms_components_example/bloc_dynamic_form/dynamic_form_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dynamic_forms/flutter_dynamic_forms.dart';
