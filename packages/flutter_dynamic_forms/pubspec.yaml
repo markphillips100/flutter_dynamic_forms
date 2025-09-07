@@ -5,7 +5,8 @@ homepage: https://github.com/markphillips100/flutter_dynamic_forms
 publish_to: none
 
 environment:
-  sdk: ">=3.1.5 <4.0.0"
+  sdk: ">=3.6.0 <4.0.0"
+resolution: workspace
 
 dependencies:
   flutter:

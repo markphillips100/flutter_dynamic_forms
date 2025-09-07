@@ -1,0 +1,15 @@
+name: flutter_dynamic_forms_workspace
+
+environment:
+  sdk: '>=3.6.0 <4.0.0'
+workspace:
+  - packages/dynamic_forms
+  - packages/dynamic_forms/example
+  - packages/dynamic_forms_generator
+  - packages/dynamic_forms_generator/example
+  - packages/expression_language
+  - packages/expression_language/example
+  - packages/flutter_dynamic_forms
+  - packages/flutter_dynamic_forms/example
+  - packages/flutter_dynamic_forms_components
+  - packages/flutter_dynamic_forms_components/example

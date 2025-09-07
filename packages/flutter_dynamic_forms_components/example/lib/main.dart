@@ -1,19 +1,19 @@
-import 'package:example/advanced_expression_form/advanced_expression_form.dart';
-import 'package:example/custom_expression_form/custom_expression_form.dart';
-import 'package:example/simple_submit_form/simple_submit_form.dart';
+import 'package:flutter_dynamic_forms_components_example/advanced_expression_form/advanced_expression_form.dart';
+import 'package:flutter_dynamic_forms_components_example/custom_expression_form/custom_expression_form.dart';
+import 'package:flutter_dynamic_forms_components_example/simple_submit_form/simple_submit_form.dart';
 import 'package:flutter_dynamic_forms/flutter_dynamic_forms.dart';
 import 'package:dynamic_forms/dynamic_forms.dart';
-import 'package:example/simple_form/simple_form_xml.dart';
+import 'package:flutter_dynamic_forms_components_example/simple_form/simple_form_xml.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dynamic_forms_components/flutter_dynamic_forms_components.dart'
     as components;
 import 'package:flutter/material.dart';
-import 'package:example/bloc_dynamic_form/dynamic_form_bloc.dart';
-import 'package:example/bloc_dynamic_form/dynamic_form_screen.dart';
-import 'package:example/simple_form/simple_form_json.dart';
-import 'package:example/transition_form/transition_form_bloc.dart';
-import 'package:example/transition_form/transition_form_builder.dart';
-import 'package:example/transition_form/transition_form_screen.dart';
+import 'package:flutter_dynamic_forms_components_example/bloc_dynamic_form/dynamic_form_bloc.dart';
+import 'package:flutter_dynamic_forms_components_example/bloc_dynamic_form/dynamic_form_screen.dart';
+import 'package:flutter_dynamic_forms_components_example/simple_form/simple_form_json.dart';
+import 'package:flutter_dynamic_forms_components_example/transition_form/transition_form_bloc.dart';
+import 'package:flutter_dynamic_forms_components_example/transition_form/transition_form_builder.dart';
+import 'package:flutter_dynamic_forms_components_example/transition_form/transition_form_screen.dart';
 
 import 'bloc_dynamic_form/custom_form_manager.dart';
 

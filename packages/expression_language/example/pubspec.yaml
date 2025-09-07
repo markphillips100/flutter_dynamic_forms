@@ -1,10 +1,11 @@
-name: example
+name: expression_language_example
 description: example
 version: 1.0.0+1
 publish_to: none
 
 environment:
-  sdk: ">=3.1.5 <4.0.0"
+  sdk: ">=3.6.0 <4.0.0"
+resolution: workspace
 
 dependencies:
   expression_language:

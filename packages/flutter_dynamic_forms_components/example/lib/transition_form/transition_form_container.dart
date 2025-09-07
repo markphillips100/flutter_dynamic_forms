@@ -1,7 +1,7 @@
-import 'package:example/components/transition_form_element/transition_form_element_renderer.dart';
-import 'package:example/transition_form/transition_form_bloc.dart';
-import 'package:example/transition_form/transition_form_event.dart';
-import 'package:example/transition_form/transition_form_state.dart';
+import 'package:flutter_dynamic_forms_components_example/components/transition_form_element/transition_form_element_renderer.dart';
+import 'package:flutter_dynamic_forms_components_example/transition_form/transition_form_bloc.dart';
+import 'package:flutter_dynamic_forms_components_example/transition_form/transition_form_event.dart';
+import 'package:flutter_dynamic_forms_components_example/transition_form/transition_form_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dynamic_forms/flutter_dynamic_forms.dart';

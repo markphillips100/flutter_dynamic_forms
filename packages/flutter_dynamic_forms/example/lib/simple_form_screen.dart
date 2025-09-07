@@ -1,11 +1,11 @@
 import 'package:dynamic_forms/dynamic_forms.dart';
-import 'package:example/components/container/container_parser.dart';
-import 'package:example/components/container/container_renderer.dart';
-import 'package:example/components/label/label_parser.dart';
-import 'package:example/components/label/label_renderer.dart';
-import 'package:example/components/required_validation/required_validation_parser.dart';
-import 'package:example/components/text_field/text_field_parser.dart';
-import 'package:example/components/text_field/text_field_renderer.dart';
+import 'package:flutter_dynamic_forms_example/components/container/container_parser.dart';
+import 'package:flutter_dynamic_forms_example/components/container/container_renderer.dart';
+import 'package:flutter_dynamic_forms_example/components/label/label_parser.dart';
+import 'package:flutter_dynamic_forms_example/components/label/label_renderer.dart';
+import 'package:flutter_dynamic_forms_example/components/required_validation/required_validation_parser.dart';
+import 'package:flutter_dynamic_forms_example/components/text_field/text_field_parser.dart';
+import 'package:flutter_dynamic_forms_example/components/text_field/text_field_renderer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_dynamic_forms/flutter_dynamic_forms.dart';
