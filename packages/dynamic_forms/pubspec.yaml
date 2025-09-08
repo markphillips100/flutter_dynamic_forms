@@ -9,7 +9,7 @@ environment:
 resolution: workspace
 
 dependencies:
-  xml: ^6.2.0
+  xml: ^6.5.0
   rxdart: ^0.26.0
   meta: ^1.3.0
   collection: ^1.19.1
