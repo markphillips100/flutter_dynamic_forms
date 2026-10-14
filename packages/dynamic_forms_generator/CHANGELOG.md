@@ -1,3 +1,7 @@
+# 1.0.1
+
+* Require Dart 3.9 or later and migrate to Build 4.
+
 # 1.0.0
 
 * Stable null safety release.

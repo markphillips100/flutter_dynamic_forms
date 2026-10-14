@@ -14,6 +14,7 @@ pubspec.lock
 coverage/
 *.log
 coverage_badge.svg
+/pubspec_overrides.yaml
 
 ios/Flutter/flutter_export_environment.sh
 
